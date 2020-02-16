@@ -15,10 +15,10 @@
 
 //typedef struct {
 //    uint8 a;//2 bytes
-//	  uint16 b;//2 bytes(ºÍuint8Ò»ÆğÕ¼4 bytes)
+//	  uint16 b;//2 bytes(å’Œuint8ä¸€èµ·å 4 bytes)
 //	  uint32 c;//4 bytes
 //}TestStructAlign1;
-
+//test2
 //typedef struct {
 //    uint8 a;//4 bytes
 //	  uint32 c;//4 bytes
@@ -43,14 +43,14 @@ int main(void) {
 	hc05_init();
   EnableInterrupts;
 	while(1);
-///************²âÊÔ×Ö½Ú¶ÔÆë***********/
+///************æµ‹è¯•å­—èŠ‚å¯¹é½***********/
 //  size1=sizeof(TestStructAlign1);
 //	size2=sizeof(TestStructAlign2);
 //	while(1);
 ///***************************************/
 		
 		
-///************²âÊÔÊÇ·ñ¿ªÆôFPU***********/
+///************æµ‹è¯•æ˜¯å¦å¼€å¯FPU***********/
 //  uint32 i = 0;
 //  float num_f = 0;
 //  float a = 3.1415926;
