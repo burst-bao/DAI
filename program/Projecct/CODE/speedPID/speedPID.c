@@ -9,23 +9,23 @@
 #include "motor.h"
 
 TSpeedPID SpeedPID;
-/*Í¨¹ı´®¿ÚÉèÖÃ¸ÃÊ¹ÄÜÎ»£¬ÒÔ¾ö¶¨ÊÇ·ñ¿ªÊ¼PIDµ÷ËÙ*/
+/*é€šè¿‡ä¸²å£è®¾ç½®è¯¥ä½¿èƒ½ä½ï¼Œä»¥å†³å®šæ˜¯å¦å¼€å§‹PIDè°ƒé€Ÿ*/
 
 void speedPID_init(void) {
-	SpeedPID.RealSpeedL = 0;     //×óÂÖÕæÊµËÙ¶È
-	SpeedPID.errL = 0;           //×óÂÖµ±Ç°ËÙ¶ÈÓëÉè¶¨ËÙ¶ÈµÄÆ«²î
-	SpeedPID.errL_last = 0;      //×óÂÖÉÏÒ»´ÎÆ«²î
-	SpeedPID.IncrementSpeedL = 0;//×óÂÖĞèÒªÔö¼ÓµÄËÙ¶È
-	SpeedPID.MotorL_pwmduty[0] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-	SpeedPID.MotorL_pwmduty[1] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-	SpeedPID.MotorL_pwmduty[2] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-	SpeedPID.RealSpeedR = 0;     //ÓÒÂÖ
+	SpeedPID.RealSpeedL = 0;     //å·¦è½®çœŸå®é€Ÿåº¦
+	SpeedPID.errL = 0;           //å·¦è½®å½“å‰é€Ÿåº¦ä¸è®¾å®šé€Ÿåº¦çš„åå·®
+	SpeedPID.errL_last = 0;      //å·¦è½®ä¸Šä¸€æ¬¡åå·®
+	SpeedPID.IncrementSpeedL = 0;//å·¦è½®éœ€è¦å¢åŠ çš„é€Ÿåº¦
+	SpeedPID.MotorL_pwmduty[0] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+	SpeedPID.MotorL_pwmduty[1] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+	SpeedPID.MotorL_pwmduty[2] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+	SpeedPID.RealSpeedR = 0;     //å³è½®
 	SpeedPID.errR = 0;
 	SpeedPID.errR_last = 0;
 	SpeedPID.IncrementSpeedR = 0;
-	SpeedPID.MotorR_pwmduty[0] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-	SpeedPID.MotorR_pwmduty[1] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-	SpeedPID.MotorR_pwmduty[2] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
+	SpeedPID.MotorR_pwmduty[0] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+	SpeedPID.MotorR_pwmduty[1] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+	SpeedPID.MotorR_pwmduty[2] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
 }
 
 void speedPID_set(bool Channel, int16 Speed) {
@@ -39,6 +39,7 @@ void speedPID_enable(bool en) {
 	hc05_rxPack.speedPID_enabled = en;
 }
 
+//é™å¹…
 static inline void CorrectSpeedDuty(uint16* Duty) {
 	if (*Duty > MotorMax)
 		*Duty = MotorMax;
@@ -47,11 +48,11 @@ static inline void CorrectSpeedDuty(uint16* Duty) {
 }
 
 inline static float ConvertSpeedUnit(float rawSpeed) {
-	return rawSpeed * 9 / 1024 / speedPID_Interval * 1000; // µ¥Î»cm/s
+	return rawSpeed * 9 / 1024 / speedPID_Interval * 1000; // å•ä½cm/s
 }
 
 
-//×óÂÖµ÷ËÙ
+//å·¦è½®è°ƒé€Ÿ
 void WL_PID_realize(void) {
 	SpeedPID.MotorL_pwmduty[0] = SpeedPID.MotorL_pwmduty[1];
 	SpeedPID.MotorL_pwmduty[1] = SpeedPID.MotorL_pwmduty[2];
@@ -68,7 +69,7 @@ void WL_PID_realize(void) {
 	SpeedPID.errL_last = SpeedPID.errL;
 }
 
-//ÓÒÂÖµ÷ËÙ
+//å³è½®è°ƒé€Ÿ
 void WR_PID_realize(void) {
 	SpeedPID.MotorR_pwmduty[0] = SpeedPID.MotorR_pwmduty[1];
 	SpeedPID.MotorR_pwmduty[1] = SpeedPID.MotorR_pwmduty[2];
@@ -104,15 +105,15 @@ void speedPID_schedule(void) {
 	}
 	else {
 		motor_stop();
-		SpeedPID.MotorL_pwmduty[0] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-		SpeedPID.MotorL_pwmduty[1] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-		SpeedPID.MotorL_pwmduty[2] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-		SpeedPID.MotorL_pwmduty[3] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
+		SpeedPID.MotorL_pwmduty[0] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+		SpeedPID.MotorL_pwmduty[1] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+		SpeedPID.MotorL_pwmduty[2] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+		SpeedPID.MotorL_pwmduty[3] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
 
-		SpeedPID.MotorR_pwmduty[0] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-		SpeedPID.MotorR_pwmduty[1] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-		SpeedPID.MotorR_pwmduty[2] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
-		SpeedPID.MotorR_pwmduty[3] = MotorMin; //Êä³ö¸ø×óµç»úµÄ¿ØÖÆÁ¿
+		SpeedPID.MotorR_pwmduty[0] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+		SpeedPID.MotorR_pwmduty[1] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+		SpeedPID.MotorR_pwmduty[2] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
+		SpeedPID.MotorR_pwmduty[3] = MotorMin; //è¾“å‡ºç»™å·¦ç”µæœºçš„æ§åˆ¶é‡
 	}
 }
 
