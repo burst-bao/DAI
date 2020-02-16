@@ -1,15 +1,4 @@
-#include "bsp.h"
-#include "mag.h"
-#include "rit.h"
-#include "hc05.h"
-#include "menu.h"
-#include "speed.h"
-#include "motor.h"
-#include "button.h"
-#include "speedPID.h"
-#include "headfile.h"
-#include "mrt.h"
-#include "memory.h"
+#include"sys.h"
 //	volatile uint32 timeee1;
 //	volatile uint32 timeee2;
 
@@ -28,21 +17,12 @@
 //volatile uint8 size1;
 //volatile uint8 size2;
 
-int main(void) { 
-	get_clk();
-//    switch_init();
-	memory_init();
-	motor_init();
-	speed_init();
-	speedPID_init();
-	Mag_init();
-	oled_init();
-	button_init();
-  menu_init();
-	mrt_init();
-	hc05_init();
-  EnableInterrupts;
-	while(1);
+int main(void) {
+	sys_init();
+	for (;;) {
+		sys_run();
+	}
+}
 ///************²âÊÔ×Ö½Ú¶ÔÆë***********/
 //  size1=sizeof(TestStructAlign1);
 //	size2=sizeof(TestStructAlign2);
@@ -70,4 +50,3 @@ int main(void) {
 //    }
 ///***************************************/
 
-}

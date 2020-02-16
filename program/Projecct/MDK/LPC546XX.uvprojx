@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER\inc;..\USER\src;..\..\Libraries\startup\CoreSupport;..\..\Libraries\startup\DeviceSupport\MDK-ARM;..\..\Libraries\startup\DeviceSupport;..\..\Libraries\drives\inc;..\..\Libraries\drives\src;..\..\Libraries\seekfree;..\..\Libraries\drives\common;..\CODE\hc05;..\CODE\bsp;..\CODE\button;..\CODE\mag;..\CODE\motor;..\CODE\speed;..\CODE\speedPID;..\CODE\switch;..\CODE\rit;..\CODE\menu;..\CODE\mrt;..\CODE\memory</IncludePath>
+              <IncludePath>..\USER\inc;..\USER\src;..\..\Libraries\startup\CoreSupport;..\..\Libraries\startup\DeviceSupport\MDK-ARM;..\..\Libraries\startup\DeviceSupport;..\..\Libraries\drives\inc;..\..\Libraries\drives\src;..\..\Libraries\seekfree;..\..\Libraries\drives\common;..\CODE\hc05;..\CODE\bsp;..\CODE\button;..\CODE\mag;..\CODE\motor;..\CODE\speed;..\CODE\speedPID;..\CODE\switch;..\CODE\rit;..\CODE\menu;..\CODE\mrt;..\CODE\memory;..\CODE\system</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -782,6 +782,11 @@
               <FileName>memory.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\CODE\memory\memory.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\system\sys.c</FilePath>
             </File>
           </Files>
         </Group>
