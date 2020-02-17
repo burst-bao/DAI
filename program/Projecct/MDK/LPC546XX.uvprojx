@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER\inc;..\USER\src;..\..\Libraries\startup\CoreSupport;..\..\Libraries\startup\DeviceSupport\MDK-ARM;..\..\Libraries\startup\DeviceSupport;..\..\Libraries\drives\inc;..\..\Libraries\drives\src;..\..\Libraries\seekfree;..\..\Libraries\drives\common;..\CODE\hc05;..\CODE\bsp;..\CODE\button;..\CODE\mag;..\CODE\motor;..\CODE\speed;..\CODE\speedPID;..\CODE\switch;..\CODE\rit;..\CODE\menu;..\CODE\mrt;..\CODE\memory;..\CODE\system</IncludePath>
+              <IncludePath>..\USER\inc;..\USER\src;..\..\Libraries\startup\CoreSupport;..\..\Libraries\startup\DeviceSupport\MDK-ARM;..\..\Libraries\startup\DeviceSupport;..\..\Libraries\drives\inc;..\..\Libraries\drives\src;..\..\Libraries\seekfree;..\..\Libraries\drives\common;..\CODE\;..\CODE\system;..\CODE\control;..\CODE\debug</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -626,92 +626,12 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>user_h</GroupName>
-          <Files>
-            <File>
-              <FileName>isr.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\USER\inc\isr.h</FilePath>
-            </File>
-            <File>
-              <FileName>headfile.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Libraries\drives\inc\headfile.h</FilePath>
-            </File>
-            <File>
-              <FileName>LPC546XX_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\USER\inc\LPC546XX_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>motor.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\motor\motor.h</FilePath>
-            </File>
-            <File>
-              <FileName>speed.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\speed\speed.h</FilePath>
-            </File>
-            <File>
-              <FileName>switch.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\switch\switch.h</FilePath>
-            </File>
-            <File>
-              <FileName>hc05.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\hc05\hc05.h</FilePath>
-            </File>
-            <File>
-              <FileName>bsp.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\bsp\bsp.h</FilePath>
-            </File>
-            <File>
-              <FileName>button.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\button\button.h</FilePath>
-            </File>
-            <File>
-              <FileName>mag.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\mag\mag.h</FilePath>
-            </File>
-            <File>
-              <FileName>speedPID.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\speedPID\speedPID.h</FilePath>
-            </File>
-            <File>
-              <FileName>menu.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\menu\menu.h</FilePath>
-            </File>
-            <File>
-              <FileName>mrt.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\mrt\mrt.h</FilePath>
-            </File>
-            <File>
-              <FileName>memory.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\memory\memory.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>user_c</GroupName>
           <Files>
             <File>
               <FileName>button.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\button\button.c</FilePath>
-            </File>
-            <File>
-              <FileName>rit.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\rit\rit.h</FilePath>
+              <FilePath>..\CODE\debug\button.c</FilePath>
             </File>
             <File>
               <FileName>isr.c</FileName>
@@ -731,62 +651,57 @@
             <File>
               <FileName>motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\motor\motor.c</FilePath>
+              <FilePath>..\CODE\control\motor.c</FilePath>
             </File>
             <File>
               <FileName>speed.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\speed\speed.c</FilePath>
+              <FilePath>..\CODE\control\speed.c</FilePath>
             </File>
             <File>
               <FileName>switch.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\switch\switch.c</FilePath>
+              <FilePath>..\CODE\debug\switch.c</FilePath>
             </File>
             <File>
-              <FileName>hc05.c</FileName>
+              <FileName>communication.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\hc05\hc05.c</FilePath>
+              <FilePath>..\CODE\debug\communication.c</FilePath>
             </File>
             <File>
-              <FileName>bsp.c</FileName>
+              <FileName>magnet.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\bsp\bsp.c</FilePath>
+              <FilePath>..\CODE\control\magnet.c</FilePath>
             </File>
             <File>
-              <FileName>mag.c</FileName>
+              <FileName>pid.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\mag\mag.c</FilePath>
-            </File>
-            <File>
-              <FileName>speedPID.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\speedPID\speedPID.c</FilePath>
+              <FilePath>..\CODE\control\pid.c</FilePath>
             </File>
             <File>
               <FileName>rit.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\rit\rit.c</FilePath>
+              <FilePath>..\CODE\rit.c</FilePath>
             </File>
             <File>
               <FileName>mrt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\mrt\mrt.c</FilePath>
+              <FilePath>..\CODE\system\mrt.c</FilePath>
             </File>
             <File>
               <FileName>menu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CODE\menu\menu.c</FilePath>
-            </File>
-            <File>
-              <FileName>memory.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\memory\memory.c</FilePath>
+              <FilePath>..\CODE\debug\menu.c</FilePath>
             </File>
             <File>
               <FileName>sys.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\CODE\system\sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>store.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\system\store.c</FilePath>
             </File>
           </Files>
         </Group>
